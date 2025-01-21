@@ -1,0 +1,45 @@
+Java installation
+
+sudo apt install openjdk-17-jdk openjdk-17-jre
+
+
+maven installation 
+
+wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+tar -xvf apache-maven-3.9.9-bin.tar.gz
+sudo mv apache-maven-3.9.9 /opt/
+M2_HOME='/opt/apache-maven-3.9.9'
+PATH="$M2_HOME/bin:$PATH"
+export PATH
+mvn -version
+
+
+
+docker installation
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo chmod 777 /var/run/docker.sock
+
+sudo ufw status
+sudo ufw enable
+
+next run mvn clean install to create target
+
+/Docker/Docker-Java/Docker-SpringBoot/spring-docker
+
+cat Dcokerfile 9 check for port number0
+sudo ufw allow 9898
+
+How to run Spring Boot application in Docker | Spring Boot Docker| ​
+next build the project 
+
+docker build -t spring-docker:v1 .
+docker container run -p 9898:9898 spring-docker:v1
+docker container run -d -p 9898:9898 spring-docker:v1
+
+run ifconfig you will get ip address
+
+ip : 172.16.16.101
+
+http://172.16.16.101:9898/api
