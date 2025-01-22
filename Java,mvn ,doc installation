@@ -43,3 +43,10 @@ run ifconfig you will get ip address
 ip : 172.16.16.101
 
 http://172.16.16.101:9898/api
+
+new project 
+
+https://github.com/jaiswaladi246/Ekart/tree/main
+mvn clean install -DskipTests=true
+docker build -t shopping:latest -f docker/Dockerfile .
+docker run -d --name shopping-cart -p 8070:8070 shopping:latest
